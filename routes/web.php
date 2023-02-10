@@ -32,6 +32,6 @@ Route::middleware('auth')->group(function () {
 Route::resource("alumnos", \App\Http\Controllers\AlumnoController::class)
     ->middleware("auth");
 Route::view('index', 'index');
-Route::view("productos", "productos");
+Route::resource("productos", \App\Http\Controllers\ProductoController::class);
 
 require __DIR__.'/auth.php';

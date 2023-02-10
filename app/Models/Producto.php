@@ -9,18 +9,13 @@ class Producto extends Model
 {
     use HasFactory;
 
-    protected $table = 'nombre_tabla';
+    protected $table = 'producto';
 
-    protected $primaryKey="otro_nombre";
-    public $incrementing=false;
-    protected $keyType="string";
+    protected $primaryKey = "cod";
+    public $incrementing = false;
+    protected $keyType = "string";
 
-    public $timestamps = false;//Por defecto true
+    public $timestamps = false;
 
-    const CREATED_AT = 'fecha_creacion';  //por defecto created_at
-    const UPDATED_AT = 'ultima_actualizacion';//por defecto updated_at
-
-    protected $dateFormat = 'U';
-
-    protected $connection = 'otra_conexión';
+    protected $fillable=['cod', 'nombre', 'nombre_corto', 'descripcion', 'pvp', 'familia'];
 }

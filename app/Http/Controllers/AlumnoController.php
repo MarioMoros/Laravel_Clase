@@ -17,7 +17,7 @@ class AlumnoController extends Controller
     {
         //
         $alumnos = Alumno::all();
-        return view("alumnos", ["alumnos" => $alumnos]);
+        return view("alumnos/alumnos", ["alumnos" => $alumnos]);
     }
 
     /**
@@ -28,7 +28,7 @@ class AlumnoController extends Controller
     public function create()
     {
         //
-        return view("create");
+        return view("alumnos.create");
     }
 
     /**
@@ -44,7 +44,7 @@ class AlumnoController extends Controller
         $alumno->saveOrFail();
 
         $alumnos = Alumno::all();
-        return view("alumnos",["alumnos"=>$alumnos]);
+        return view("alumnos/alumnos",["alumnos"=>$alumnos]);
     }
 
     /**
@@ -67,7 +67,7 @@ class AlumnoController extends Controller
     public function edit(Alumno $alumno)
     {
         //
-        return view("edit", ["alumno" => $alumno]);
+        return view("alumnos.edit", ["alumno" => $alumno]);
 
     }
 
@@ -84,7 +84,7 @@ class AlumnoController extends Controller
         $valores = $request->input();
         $alumno->update($valores);
         $alumnos = Alumno::all();
-        return view("alumnos",["alumnos"=>$alumnos]);
+        return view("alumnos/alumnos",["alumnos"=>$alumnos]);
 
     }
 
@@ -99,6 +99,6 @@ class AlumnoController extends Controller
         //
         $alumno->delete();
         $alumnos = Alumno::all();
-        return view("alumnos",["alumnos"=>$alumnos]);
+        return view("alumnos/alumnos",["alumnos"=>$alumnos]);
     }
 }

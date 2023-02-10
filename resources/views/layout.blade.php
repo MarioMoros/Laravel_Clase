@@ -36,7 +36,7 @@
 <nav class="h-12vh bg-emerald-300 border-2 px-10
                 flex flex-row justify-between content-center">
     <a class="h-1" href="alumnos">Alumnos</a>
-    <a class="h-1" href="producto">Productos</a>
+    <a class="h-1" href="productos">Productos</a>
 {{--    <a href="tiendas">Tiendas</a>--}}
 {{--    <a href="familias">Familias</a>--}}
 </nav>

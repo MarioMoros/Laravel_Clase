@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreproductoRequest;
 use App\Http\Requests\UpdateproductoRequest;
-use App\Models\producto;
+use App\Models\Producto;
 
 class ProductoController extends Controller
 {
@@ -16,6 +16,8 @@ class ProductoController extends Controller
     public function index()
     {
         //
+        $productos = Producto::all();
+        return view("productos/productos", ["productos" => $productos]);
     }
 
     /**
@@ -26,6 +28,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
+        return view("productos.create");
     }
 
     /**
@@ -37,6 +40,11 @@ class ProductoController extends Controller
     public function store(StoreproductoRequest $request)
     {
         //
+        $producto = new Producto($request->input());
+        $producto->saveOrFail();
+
+        $productos = Producto::all();
+        return view("productos/productos",["productos"=>$productos]);
     }
 
     /**
