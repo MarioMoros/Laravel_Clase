@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::view('vue', 'vue');
 Route::resource("alumnos", \App\Http\Controllers\AlumnoController::class)
     ->middleware("auth");
 Route::view('index', 'index');
