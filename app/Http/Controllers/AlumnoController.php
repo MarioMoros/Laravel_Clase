@@ -17,7 +17,12 @@ class AlumnoController extends Controller
     {
         //
         $alumnos = Alumno::all();
-        return view("alumnos/alumnos", ["alumnos" => $alumnos]);
+        $campos = $alumnos[0]->getAttributes();
+        $campos = array_keys($campos);
+        //dd($campos);
+        $campos = json_encode($campos);
+        $alumnos = json_encode($alumnos);
+        return view("alumnos/alumnos", ["alumnos" => $alumnos, "campos" => $campos, "nombre" => "Alumnos"]);
     }
 
     /**
