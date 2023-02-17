@@ -48,8 +48,7 @@ class AlumnoController extends Controller
         $alumno = new Alumno($request->input());
         $alumno->saveOrFail();
 
-        $alumnos = Alumno::all();
-        return view("alumnos/alumnos",["alumnos"=>$alumnos]);
+        return redirect(route("alumnos.index"));
     }
 
     /**
@@ -88,8 +87,8 @@ class AlumnoController extends Controller
         //
         $valores = $request->input();
         $alumno->update($valores);
-        $alumnos = Alumno::all();
-        return view("alumnos/alumnos",["alumnos"=>$alumnos]);
+
+        return redirect(route("alumnos.index"));
 
     }
 
@@ -104,6 +103,6 @@ class AlumnoController extends Controller
         //
         $alumno->delete();
         $alumnos = Alumno::all();
-        return view("alumnos/alumnos",["alumnos"=>$alumnos]);
+        return ["alumnos"=>$alumnos, "saludo"=>"baba bueye"];
     }
 }
